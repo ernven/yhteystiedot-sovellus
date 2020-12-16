@@ -20,7 +20,7 @@ int TaulukonFunktiot::lisaaTaulukkoon(Kontakti kontakti, Kontakti array[], int k
 
 // Funktio etsii saman nimisen kontaktin taulukosta.
 // Se palauttaa kontaktin indeksin, jos on taulukossa, tai -1 jos ei ole löytynyt.
-int TaulukonFunktiot::etsiTaulukosta(string nimi, Kontakti array[], int koko)
+int TaulukonFunktiot::etsiTaulukosta(std::string nimi, Kontakti array[], int koko)
 {
     for (int i = 0; i < koko; i++) {
         if (array[i].getNimi() == nimi) {
@@ -32,7 +32,7 @@ int TaulukonFunktiot::etsiTaulukosta(string nimi, Kontakti array[], int koko)
 
 // Funktio poistaa saman nimisen kontaktin taulukosta.
 // Se palauttaa 1 jos kontakti on poistettu, tai 0 jos ei ole löytynyt taulukosta.
-int TaulukonFunktiot::poistaTaulukosta(string nimi, Kontakti array[], int koko)
+int TaulukonFunktiot::poistaTaulukosta(std::string nimi, Kontakti array[], int koko)
 {
     for (int i = 0; i < koko; i++) {
         if (array[i].getNimi() == nimi) {
@@ -48,20 +48,20 @@ void TaulukonFunktiot::tulostaaKaikkiNimet(Kontakti array[], int koko)
 {
     for (int i = 0; i < koko; i++) {
         if (!array[i].getNimi().empty()) {
-            cout << array[i].getNimi() << endl;
+            std::cout << array[i].getNimi() << std::endl;
         }
     }
 }
 
 // Funktio lisää kontakteja tiedostosta, jonka nimi on annettu tai default.txt.
 // Se palauta kuinka monta kontaktia on lisätty (0 jos tiedosto oli tyhjä) tai -1 jos tuli virhe.
-int TaulukonFunktiot::lisaaTiedostosta(string tNimi, Kontakti array[], int koko)
+int TaulukonFunktiot::lisaaTiedostosta(std::string tNimi, Kontakti array[])
 {
-    ifstream tiedosto;
+    std::ifstream tiedosto;
     tiedosto.open(tNimi);
     if (tiedosto.is_open()) {
-        string rivi;
-        string params[4];
+        std::string rivi;
+        std::string params[4];
         int i = 0;
         int j = 0;
         while (getline(tiedosto, rivi)) {
@@ -82,17 +82,17 @@ int TaulukonFunktiot::lisaaTiedostosta(string tNimi, Kontakti array[], int koko)
 
 // Funktio tallentaa kontakteja tiedostoon, jonka nimi on annettu tai default.txt.
 // Se palauta 0 jos onnistui tai -1 jos tuli virhe.
-int TaulukonFunktiot::tallentaaTiedostoon(string tNimi, Kontakti array[], int koko)
+int TaulukonFunktiot::tallentaaTiedostoon(std::string tNimi, Kontakti array[], int koko)
 {
-    ofstream tiedosto;
+    std::ofstream tiedosto;
     tiedosto.open(tNimi);
     if (tiedosto.is_open()) {
         for (int i = 0; i < koko; i++) {
             if (!array[i].getNimi().empty()) {
-                tiedosto << array[i].getNimi() << endl;
-                tiedosto << array[i].getPuhelinNumero() << endl;
-                tiedosto << array[i].getOsoite() << endl;
-                tiedosto << array[i].getSahkoposti() << endl;
+                tiedosto << array[i].getNimi() << std::endl;
+                tiedosto << array[i].getPuhelinNumero() << std::endl;
+                tiedosto << array[i].getOsoite() << std::endl;
+                tiedosto << array[i].getSahkoposti() << std::endl;
             }
         }
         tiedosto.close();

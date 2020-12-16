@@ -4,27 +4,27 @@
 #ifndef KONTAKTI_H
 #define KONTAKTI_H
 
-using namespace std;
+#include <string>
 
 class Kontakti
 {
 private:
-    string nimi, puhNo, osoite, sPosti;
+    std::string nimi, puhNo, osoite, sPosti;
 
 public:
     Kontakti();
-    Kontakti(string nimi, string puhNo, string osoite, string sPosti);
+    Kontakti(std::string nimi, std::string puhNo, std::string osoite, std::string sPosti);
     
     
-    void setNimi(string nimi);
-    void setPuhelinNumero(string puhNo);
-    void setOsoite(string osoite);
-    void setSahkoposti(string sPosti);
+    void setNimi(std::string nimi);
+    void setPuhelinNumero(std::string puhNo);
+    void setOsoite(std::string osoite);
+    void setSahkoposti(std::string sPosti);
     
-    string getNimi();
-    string getPuhelinNumero();
-    string getOsoite();
-    string getSahkoposti();
+    std::string getNimi();
+    std::string getPuhelinNumero();
+    std::string getOsoite();
+    std::string getSahkoposti();
     
     void tulosta();
 };

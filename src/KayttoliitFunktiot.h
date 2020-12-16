@@ -12,7 +12,7 @@ namespace KayttoliitFunktiot
 {
     int saaLuvun();
 
-    string saaSyoteKayttajalta(string pyydetty);
+    std::string saaSyoteKayttajalta(std::string pyydetty);
 
     Kontakti luoKontaktin();
 

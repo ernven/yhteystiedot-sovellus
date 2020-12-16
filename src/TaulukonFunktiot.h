@@ -13,15 +13,15 @@ namespace TaulukonFunktiot
 {
     int lisaaTaulukkoon(Kontakti kontakti, Kontakti array[], int koko);
 
-    int etsiTaulukosta(string nimi, Kontakti array[], int koko);
+    int etsiTaulukosta(std::string nimi, Kontakti array[], int koko);
 
-    int poistaTaulukosta(string nimi, Kontakti array[], int koko);
+    int poistaTaulukosta(std::string nimi, Kontakti array[], int koko);
 
     void tulostaaKaikkiNimet(Kontakti array[], int koko);
 
-    int lisaaTiedostosta(string tNimi, Kontakti array[], int koko);
+    int lisaaTiedostosta(std::string tNimi, Kontakti array[]);
 
-    int tallentaaTiedostoon(string tNimi, Kontakti array[], int koko);
+    int tallentaaTiedostoon(std::string tNimi, Kontakti array[], int koko);
 }
 
 #endif /* TaulukonFunktiot_h */

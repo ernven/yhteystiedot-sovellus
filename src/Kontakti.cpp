@@ -4,6 +4,8 @@
 #include <iostream>
 #include "Kontakti.h"
 
+using namespace std;
+
 // Perusrakentaja
 Kontakti::Kontakti() {}
 

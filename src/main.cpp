@@ -10,10 +10,11 @@
 // taulukon koko on vakio
 #define T_KOKO 50
 
+using namespace std;
 using namespace KayttoliitFunktiot;
 using namespace TaulukonFunktiot;
 
-int main(int argc, const char * argv[]) {
+int main() {
     
     string vaihtoehdot = "\nValitse sopiva vaihtoehto:\n1. Lataa tiedosto\n2. Luo uusi yhteyshenkilö\n3. Tulosta kaikki nimet"
         "\n4. Etsi yhteyshenkilö\n5. Päivitä yhteyshenkilö\n6. Poista yhteyshenkilö\n7. Tallenna tiedostoon\n0. Lopeta";
@@ -50,7 +51,7 @@ int main(int argc, const char * argv[]) {
                         tiedostonNimi = nimi;
                     }
                     
-                    int tulos = lisaaTiedostosta(tiedostonNimi, kirja, T_KOKO);
+                    int tulos = lisaaTiedostosta(tiedostonNimi, kirja);
                     if (tulos == -1) {
                         cout << "\n Virhe! Ei voinut avata tiedostoa tai sitä ei löytynyt." << endl;
                     } else {

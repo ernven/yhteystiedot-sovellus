@@ -12,30 +12,19 @@ int KayttoliitFunktiot::saaLuvun()
 {
     try {
         return stoi(saaSyoteKayttajalta("luku"));
-    } catch (invalid_argument) {
-        cout << "Virhe: Syötteen täytyy olla luku 1-6:n väliltä." << endl;
+    } catch (std::invalid_argument) {
+        std::cout << "Virhe: Syötteen täytyy olla luku 1-6:n väliltä." << std::endl;
         return -1;
     }
-    
-    /*
-    if (cin.fail()) {
-        cout << "Virhe: Syötteen täytyy olla luku 1-6:n väliltä." << endl;
-        // Virheilmoituksen poisto ja bufferin tyhjennys
-        cin.clear();
-        cin.ignore(10000,'\n');
-        return -1;
-    }*/
-    
-    //return luku;
 }
 
 // Funktio saa syötteen käyttäjältä (cin-funktion kautta) ja palauttaa sen.
-string KayttoliitFunktiot::saaSyoteKayttajalta(string pyydetty)
+std::string KayttoliitFunktiot::saaSyoteKayttajalta(std::string pyydetty)
 {
-    cout << " Anna " << pyydetty << ": ";
+    std::cout << " Anna " << pyydetty << ": ";
     
-    string annettu;
-    getline(cin, annettu);
+    std::string annettu;
+    getline(std::cin, annettu);
     
     return annettu;
 }
@@ -43,7 +32,7 @@ string KayttoliitFunktiot::saaSyoteKayttajalta(string pyydetty)
 // Funktio saa parametrit käyttäjältä, luo kontakti-olion ja palauttaa sen.
 Kontakti KayttoliitFunktiot::luoKontaktin()
 {
-    string nimi, puhNo, osoite, sPosti;
+    std::string nimi, puhNo, osoite, sPosti;
 
     while (nimi.empty()) {
         nimi = saaSyoteKayttajalta("yhteyshenkilön nimi");
@@ -58,7 +47,7 @@ Kontakti KayttoliitFunktiot::luoKontaktin()
 // Funktio ottaa viittauksen parametrilla ja päivittää kontaktin taulukossa (se saa muuttujan muistiosoitteen arvon)
 void KayttoliitFunktiot::paivitysKasittely(Kontakti &k)
 {
-    string puhNo, osoite, sPosti;
+    std::string puhNo, osoite, sPosti;
     
     puhNo = saaSyoteKayttajalta("yhteyshenkilön puhelinnumero");
     k.setPuhelinNumero(puhNo);
